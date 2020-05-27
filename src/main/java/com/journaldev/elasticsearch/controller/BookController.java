@@ -59,9 +59,15 @@ public class BookController {
 		book.setTitle("title");
 		book.setPrice(value);
 		
-		bookDao.insertBook(book);
+		book = bookDao.insertBook(book);
+		
+		System.out.println("<<Id>>" + book.getId());
+		
+		String returnValue = "test";
+		returnValue = book.getId();
+	
 		
 		
-		return "tested insert";
+		return returnValue;
 	}
 }
