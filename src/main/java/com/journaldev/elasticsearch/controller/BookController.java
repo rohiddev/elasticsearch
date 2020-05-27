@@ -65,6 +65,12 @@ public class BookController {
 		
 		String returnValue = "test";
 		returnValue = book.getId();
+		
+		//retreive from elastic search
+		
+		Map<String, Object> map =  bookDao.getBookById(book.getId());
+		System.out.println("map value" + map);
+		
 	
 		
 		
