@@ -49,4 +49,19 @@ public class BookController {
 		return "Hello World";
 	}
 
+	@GetMapping("/insert")
+	public String insert() {
+		float value = 0.06f;
+		Book book =new Book();
+		//book.setId("123");
+		book.setAuthor("test");
+		
+		book.setTitle("title");
+		book.setPrice(value);
+		
+		bookDao.insertBook(book);
+		
+		
+		return "tested insert";
+	}
 }
