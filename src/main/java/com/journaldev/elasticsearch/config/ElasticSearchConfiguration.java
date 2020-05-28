@@ -1,6 +1,7 @@
 package com.journaldev.elasticsearch.config;
 
 import org.apache.http.HttpHost;
+
 import org.elasticsearch.client.RestClient;
 import org.elasticsearch.client.RestHighLevelClient;
 import org.slf4j.Logger;
@@ -59,9 +60,13 @@ public class ElasticSearchConfiguration extends AbstractFactoryBean<RestHighLeve
         	
         	//vpc-elasticsearch3-2lks6gvfna46eek2j3gnnzmdui.us-east-1.es.amazonaws.com
         	
+        	//https://vpc-elasticsearchshared3-kh7wytqbbk4uzdy73gr4depmhi.us-east-1.es.amazonaws.com
+        	
         	restHighLevelClient = new RestHighLevelClient(
                     RestClient.builder(
-                            new HttpHost("vpc-elasticsearchshared-vabhpx3iig2wszmmmbpb73k6xq.us-east-1.es.amazonaws.com", 80, "http")));
+                            new HttpHost("vpc-elasticsearchshared3-kh7wytqbbk4uzdy73gr4depmhi.us-east-1.es.amazonaws.com", 80, "http")));
+        	
+        	
                             
                            
         	
