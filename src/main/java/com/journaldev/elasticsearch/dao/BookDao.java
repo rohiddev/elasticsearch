@@ -42,9 +42,6 @@ public class BookDao {
                 .source(dataMap);
         try {
             IndexResponse response = restHighLevelClient.index(indexRequest);
-            
-            System.out.println("response id" + response.getId());
-            System.out.println("response index" + response.getIndex());
         } catch(ElasticsearchException e) {
             e.getDetailedMessage();
         } catch (java.io.IOException ex){
@@ -55,19 +52,13 @@ public class BookDao {
 
     public Map<String, Object> getBookById(String id){
         GetRequest getRequest = new GetRequest(INDEX, TYPE, id);
-        
-        System.out.println("retreive id" + id);
         GetResponse getResponse = null;
         try {
             getResponse = restHighLevelClient.get(getRequest);
-            
-            System.out.println("index" + getResponse.getIndex());
         } catch (java.io.IOException e){
             e.getLocalizedMessage();
         }
         Map<String, Object> sourceAsMap = getResponse.getSourceAsMap();
-        
-        System.out.println("sourceAsMap" + sourceAsMap);
         return sourceAsMap;
     }
 
