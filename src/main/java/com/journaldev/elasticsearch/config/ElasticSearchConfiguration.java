@@ -55,11 +55,13 @@ public class ElasticSearchConfiguration extends AbstractFactoryBean<RestHighLeve
                             
                             */
                             
-                           
+            //https://vpc-elasticsearchshared-vabhpx3iig2wszmmmbpb73k6xq.us-east-1.es.amazonaws.com 
+        	
+        	//vpc-elasticsearch3-2lks6gvfna46eek2j3gnnzmdui.us-east-1.es.amazonaws.com
         	
         	restHighLevelClient = new RestHighLevelClient(
                     RestClient.builder(
-                            new HttpHost("vpc-elasticsearch3-2lks6gvfna46eek2j3gnnzmdui.us-east-1.es.amazonaws.com", 80, "http")));
+                            new HttpHost("vpc-elasticsearchshared-vabhpx3iig2wszmmmbpb73k6xq.us-east-1.es.amazonaws.com", 80, "http")));
                             
                            
         	
