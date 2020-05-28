@@ -1,8 +1,12 @@
 package com.journaldev.elasticsearch.config;
 
 import org.apache.http.HttpHost;
-
+import org.apache.http.auth.AuthScope;
+import org.apache.http.auth.UsernamePasswordCredentials;
+import org.apache.http.client.CredentialsProvider;
+import org.apache.http.impl.client.BasicCredentialsProvider;
 import org.elasticsearch.client.RestClient;
+import org.elasticsearch.client.RestClientBuilder;
 import org.elasticsearch.client.RestHighLevelClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -62,12 +66,26 @@ public class ElasticSearchConfiguration extends AbstractFactoryBean<RestHighLeve
         	
         	//https://vpc-elasticsearchshared3-kh7wytqbbk4uzdy73gr4depmhi.us-east-1.es.amazonaws.com
         	
+        	/*
+        	
         	restHighLevelClient = new RestHighLevelClient(
                     RestClient.builder(
                             new HttpHost("vpc-elasticsearchshared3-kh7wytqbbk4uzdy73gr4depmhi.us-east-1.es.amazonaws.com", 80, "http")));
         	
         	
-                            
+               */
+        	  int timeout = 60;
+        	  
+        	  
+        	  final CredentialsProvider credentialsProvider =new BasicCredentialsProvider();
+              credentialsProvider.setCredentials(AuthScope.ANY,new UsernamePasswordCredentials("username", "Password1@"));
+              RestClientBuilder builder =RestClient.builder(new HttpHost("vpc-elasticsearchcred-bvcce256iozdnytk44c56as3gu.us-east-1.es.amazonaws.com", 80, "http")).setHttpClientConfigCallback(httpClientBuilder -> httpClientBuilder.setDefaultCredentialsProvider(credentialsProvider));
+              builder.setRequestConfigCallback(requestConfigBuilder -> requestConfigBuilder.setConnectTimeout(timeout * 1000).setSocketTimeout(timeout * 1000)
+                      .setConnectionRequestTimeout(0));
+
+              RestHighLevelClient client = new RestHighLevelClient(builder);
+              return client;
+        	
                            
         	
         	
