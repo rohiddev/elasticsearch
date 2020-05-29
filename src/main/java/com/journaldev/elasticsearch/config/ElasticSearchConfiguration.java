@@ -66,14 +66,15 @@ public class ElasticSearchConfiguration extends AbstractFactoryBean<RestHighLeve
         	
         	//https://vpc-elasticsearchshared3-kh7wytqbbk4uzdy73gr4depmhi.us-east-1.es.amazonaws.com
         	
-        	/*
+        	
         	
         	restHighLevelClient = new RestHighLevelClient(
                     RestClient.builder(
                             new HttpHost("vpc-elasticsearchshared3-kh7wytqbbk4uzdy73gr4depmhi.us-east-1.es.amazonaws.com", 80, "http")));
         	
         	
-               */
+        	
+             /*
         	  int timeout = 60;
         	  
         	  
@@ -85,7 +86,7 @@ public class ElasticSearchConfiguration extends AbstractFactoryBean<RestHighLeve
 
               RestHighLevelClient client = new RestHighLevelClient(builder);
               return client;
-        	
+        	*/
                            
         	
         	
